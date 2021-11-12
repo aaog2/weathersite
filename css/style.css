@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Mulish', sans-serif;
+    background-color: #151244;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+.weather-container{
+    display: block;
+}
+
+.previews{
+    height: 500px;
+    background-image: linear-gradient(
+    90deg,
+    rgba(117, 187, 226, 0.5),
+    rgba(5, 119, 245, 0.8)
+    ),url("../img/sunny.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 0 0 12px black;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+
+.textone{
+    margin-top: -50px;
+}
+
+.textone h2{
+    margin: 0;
+    font-weight: bold;
+}
+
+.texttwo i{
+    font-size: 50px;
+}
+
+.texttwo h1{
+    font-size: 70px;
+    font-weight: bold;
+}
+
+/*start details*/
+.details{
+    height: 450px;
+    background-color: #16162a;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 5px 0 20px rgba(255,255,255,0.2);
+    margin:auto 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.up{
+    width: 92%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    padding: 10px;
+
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*flex-direction: column;*/
+}
+
+.condition{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.condition p{
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.condition span{
+    font-size: 19px;
+    font-weight: 500;
+}
+
+
+.bottom{
+    width: 300px;
+    background: linear-gradient(
+    steelblue,
+    skyblue
+    );
+    padding: 5px 20px;
+    border-radius: 30px;
+
+    overflow: hidden;
+}
+
+.location-box{
+    /*width: 600px;*/
+    /*background-color: blue;*/
+    display: flex;
+    transform: translateX(0px);
+
+    transition: all 0.5s;
+
+
+}
+
+.location{
+    width: 300px;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.location i,.location span{
+    /*text-shadow: 0 0 5px rgba(0,0,0,0.8);*/
+    font-weight: bold;
+    transform: translateX(-20px);
+
+}
+
+.location:hover{
+    color: #151244;
+}
+
+.location:active{
+    transform: scale(0.95);
+}
+
+/*end details*/
+
+/*start city-container*/
+.city-container{
+    display: none;
+}
+/*end city-container*/
+
