@@ -106,7 +106,6 @@ body{
 
 
 .bottom{
-    width: 300px;
     background: linear-gradient(
     steelblue,
     skyblue
@@ -129,7 +128,6 @@ body{
 }
 
 .location{
-    width: 300px;
     background-color: transparent;
 
     display: flex;

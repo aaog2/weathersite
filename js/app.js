@@ -65,26 +65,22 @@ function getcityname(){
     // console.log(city.value);
 
     if(city.value === ""){
-        console.log("hey");
-
-        showalert();
+        showalert('Enter your Location');
 
 
     }
 
     else {
         getdata(`${city.value.toLowerCase()}`);
-        citycontainer.style.display = "none";
-        weathercontainer.style.display = "block";
     }
 
 
 }
 
-function showalert(){
+function showalert(message){
     let alert = document.createElement('div');
     alert.className = "alert alert-danger text-muted text-center";
-    alert.innerText = 'Please enter your location';
+    alert.innerText = message;
     document.querySelector('.alert-box').appendChild(alert);
 
     setTimeout(()=>alert.remove(),2000);
@@ -102,34 +98,51 @@ async function getdata(city){
     console.log(data);
     // console.log(data.weather[0]);
     // console.log(data.weather[0].main);
+    // console.log(data.message);\
 
-    const k = data.main.temp;
-    const c = k - 273.15;
-    // console.log(c);
-
-    let date = new Date();
-    let day = date.getDay();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-
-    const getdate = days[day];
-    const getmonth = months[month];
-
-    let weaicon = data.weather[0].id;
-    // console.log(weaicon);
+    if(data.message){
+        // console.log("true");
+        showalert(data.message);
 
 
+    }else {
+        const k = data.main.temp;
+        const c = k - 273.15;
+        // console.log(c);
 
-    dayel.innerText = `${getdate}`;
-    dateel.innerText = `${day} / ${getmonth} / ${year}`;
-    town.innerText = data.name;
-    temp.innerText = Math.floor(c);
-    weather.innerText = data.weather[0].main;
-    weathericon.className = `owf owf-${weaicon}`;
-    pressure.innerText = `${data.main.pressure} hPa`;
-    humidity.innerText = `${data.main.humidity} %`;
-    wind.innerText = `${data.wind.speed} km/h`;
+        let date = new Date();
+        let day = date.getDay();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        const getdate = days[day];
+        const getmonth = months[month];
+
+        let weaicon = data.weather[0].id;
+        // console.log(weaicon);
+
+
+
+        dayel.innerText = `${getdate}`;
+        dateel.innerText = `${day} / ${getmonth} / ${year}`;
+        town.innerText = data.name;
+        temp.innerText = Math.floor(c);
+        weather.innerText = data.weather[0].main;
+        weathericon.className = `owf owf-${weaicon}`;
+        pressure.innerText = `${data.main.pressure} hPa`;
+        humidity.innerText = `${data.main.humidity} %`;
+        wind.innerText = `${data.wind.speed} km/h`;
+
+        citycontainer.style.display = "none";
+        weathercontainer.style.display = "block";
+    }
+
+
 }
 
 getdata("yangon");
 
+let unix = 1636960728;
+let date = new Date(unix*1000);
+
+console.log(date);
